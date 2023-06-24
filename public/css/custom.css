@@ -1,0 +1,8 @@
+.custom-image {
+    width: 80px; /* Ajusta el ancho deseado para las imágenes */
+    height: 50px; /* Permite que la altura se ajuste automáticamente de acuerdo con el ancho */
+  }
+
+.titulo-encabezado {
+    text-transform: capitalize; /* Aplica capitalización en la primera letra */
+}
