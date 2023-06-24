@@ -36,7 +36,7 @@
           <td>{{$producto->categoria->nombre}}</td>  
           <td>
           
-              <form action="{{ route('productos.destroy', $producto->id) }}" method="POST">
+              <form action="{{ route('productos.destroy', $producto->id) }}" class="form-del" method="POST">
                 @csrf
                 @method('DELETE')
                 <a href="productos/{{$producto->id}}/edit" class="btn btn-info mb-1 titulo-encabezado">Editar</a>
@@ -60,6 +60,7 @@
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" ></script>
   <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
   <script src="//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     $(document).ready(function () {
       $('#productos').DataTable({
@@ -68,4 +69,39 @@
       });
     });
   </script>
+
+  @if(session('eliminar') == 'ok')
+      <script>
+        Swal.fire(
+            '!Registro eliminado!',
+            '!Registro eliminado con exito!',
+            'success'
+        )
+      </script>
+  @endif
+
+  <script>
+
+    $('.form-del').submit(function(e){
+      e.preventDefault();
+
+      Swal.fire({
+      title: '¿Estás seguro?',
+      text: "¡El registro se eliminará definitivamente!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Si, eliminar!',
+      cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.submit();
+        }
+      })
+
+    })
+
+  </script>
+
 @stop

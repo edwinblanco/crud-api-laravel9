@@ -14,7 +14,7 @@
             <div class="col">
             <div class="mb-3">
                 <label for="" class="form-label">Código:</label>
-                <input type="text" class="form-control" id="codigo" name="codigo" value="{{$producto->codigo}}">
+                <input type="text" class="form-control" id="codigo" name="codigo" value="{{$producto->codigo}}" required>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Descripción:</label>
@@ -22,13 +22,13 @@
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Cantidad:</label>
-                <input type="number" class="form-control" id="cantidad" name="cantidad" value="{{$producto->cantidad}}">
+                <input type="number" class="form-control" id="cantidad" name="cantidad" value="{{$producto->cantidad}}" required>
             </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <label for="" class="form-label">Precio:</label>
-                    <input type="number" class="form-control" id="precio" name="precio" step="any" value="{{$producto->precio}}">
+                    <input type="number" class="form-control" id="precio" name="precio" step="any" value="{{$producto->precio}}" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Imagen:</label>

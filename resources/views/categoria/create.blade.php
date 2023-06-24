@@ -11,7 +11,7 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" name="nombre">
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
         </div>
         
         <div class="m-auto">

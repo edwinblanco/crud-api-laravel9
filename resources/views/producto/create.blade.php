@@ -13,7 +13,7 @@
             <div class="col">
             <div class="mb-3">
                 <label for="" class="form-label">Código:</label>
-                <input type="text" class="form-control" id="codigo" name="codigo">
+                <input type="text" class="form-control" id="codigo" name="codigo" required>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Descripción:</label>
@@ -21,13 +21,13 @@
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Cantidad:</label>
-                <input type="number" class="form-control" id="cantidad" name="cantidad">
+                <input type="number" class="form-control" id="cantidad" name="cantidad" required>
             </div>
             </div>
             <div class="col">
                 <div class="mb-3">
                     <label for="" class="form-label">Precio:</label>
-                    <input type="number" class="form-control" id="precio" name="precio" step="any" value="0.00">
+                    <input type="number" class="form-control" id="precio" name="precio" step="any" value="0.00" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Imagen:</label>
@@ -35,11 +35,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Categoria:</label>
-                    <select class="form-select" id="categoria" name="categoria_id">
+                    @if(count($categorias) >0 )
+                    <select class="form-select" id="categoria" name="categoria_id" required>
                         @foreach($categorias as $categoria)
                             <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                         @endforeach
                     </select>
+                    @else
+                    <p class="text-danger">¡No hay categorías agregadas! Agrega una <a href="{{ route('categorias.create') }}">aquí</a></p>
+                    @endif
                 </div>
                 
             </div>

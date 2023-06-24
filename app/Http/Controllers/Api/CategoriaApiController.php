@@ -15,6 +15,7 @@ class CategoriaApiController extends Controller
         $this->middleware('auth:sanctum')->except(['index', 'show']);
     }
 
+    // Leer
     public function index()
     {
 
@@ -25,6 +26,7 @@ class CategoriaApiController extends Controller
         ], Response::HTTP_OK);
     }
 
+    // Crear
     public function store(Request $request)
     {
         $request->validate([
@@ -41,12 +43,14 @@ class CategoriaApiController extends Controller
 
     }
 
+    // Ver
     public function show($id)
     {
         $categoria = Categoria::findOrFail($id);
         return $categoria;
     }
 
+    //Actualizar
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -62,6 +66,7 @@ class CategoriaApiController extends Controller
         ], Response::HTTP_OK);
     }
 
+    //Eliminar
     public function destroy($id)
     {
         $categoria = Categoria::findOrFail($id);

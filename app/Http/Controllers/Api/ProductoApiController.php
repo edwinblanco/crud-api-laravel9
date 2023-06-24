@@ -16,6 +16,7 @@ class ProductoApiController extends Controller
         $this->middleware('auth:sanctum')->except(['index', 'show']);
     }
     
+    //Leer
     public function index()
     {
         $productos = Producto::all();
@@ -25,6 +26,7 @@ class ProductoApiController extends Controller
         ], Response::HTTP_OK);
     }
 
+    //Crear
     public function store(Request $request)
     {
         $request->validate([
@@ -53,12 +55,14 @@ class ProductoApiController extends Controller
         ], Response::HTTP_OK);
     }
 
+    //Leer
     public function show($id)
     {
         $producto = Producto::findOrFail($id);
         return $producto;
     }
 
+    //Actualizar
     public function update(Request $request, $id)
     {
         
@@ -89,6 +93,7 @@ class ProductoApiController extends Controller
 
     }
 
+    //Eliminar
     public function destroy($id)
     {
         $producto = Producto::findOrFail($id)->delete();

@@ -12,7 +12,7 @@
         @method('PUT')
         <div class="mb-3">
             <label for="" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="{{$categoria->nombre}}">
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{{$categoria->nombre}}" required>
         </div>
             
         <div class="m-auto">
